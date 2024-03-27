@@ -6,4 +6,8 @@ spec:
   containers:
   - name: webapp
     image: richardchesterwood/k8s-fleetman-webapp-angular:release0
+    resources:
+      limits:
+        cpu: "1"
+        memory: "512Mi"
 
