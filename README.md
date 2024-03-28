@@ -41,7 +41,7 @@ kubectl get service [ServiceName]
 
 ## Chapters
 
-### 5
+### 5 Pod
 
 ```powershell
 # create pod
@@ -76,7 +76,7 @@ kubectl port-forward svc/fleetman-webapp 30080:80
 
 ```
 
-### 6
+### 6 Service
 
 ```powershell
 # create pod
@@ -102,4 +102,79 @@ kubectl get pods --show-labels
 kubectl get pods --show-labels -l release=0
 ```
 
+Kubernetes embedded within Docker Desktop
 Open browser: http://localhost:30080/
+
+### 7 ActiveMQ
+
+Kubernetes embedded within Docker Desktop, uses localhost:30080 to access Service for Frontend Pod.
+
+For the ActiveMq queue, we will need to access it on localhost:30010.
+
+If it is not accessible, run the following port-forward command:
+
+```powershell
+kubectl port-forward svc/fleetman-queue 30010:8161
+```
+
+```powershell
+cd '.\course-resources\Chapter 7 Exercise'
+# Create
+kubectl apply -f .
+
+kubectl get all
+
+Kubernetes embedded within Docker Desktop
+WebApp: http://localhost:30080/
+Queue: http://localhost:30010/
+# username: admin
+# password: admin
+
+# Delete
+kubectl delete -f .
+```
+
+### 8 ReplicaSets
+
+```powershell
+cd '.\course-resources\Chapter 8 ReplicaSets'
+# Create
+kubectl apply -f .
+
+kubectl get all
+
+Kubernetes embedded within Docker Desktop
+WebApp: http://localhost:30080/
+Queue: http://localhost:30010/
+# username: admin
+# password: admin
+
+# Delete
+kubectl delete -f .
+```
+
+### 9 Deployments
+
+```powershell
+cd '.\course-resources\Chapter 9 Deployments'
+# Create
+kubectl apply -f .
+
+kubectl get all
+
+# Modify and redeploy Deployment
+kubectl apply -f .
+# Check Deployment Rollout Status
+kubectl rollout status deployment webapp
+# Check Deployment Rollout History
+kubectl rollout history deployment webapp
+
+Kubernetes embedded within Docker Desktop
+WebApp: http://localhost:30080/
+Queue: http://localhost:30010/
+# username: admin
+# password: admin
+
+# Delete
+kubectl delete -f .
+```
