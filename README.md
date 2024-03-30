@@ -6,6 +6,8 @@
 
 [Course Github Repo for the Docker Images](https://github.com/DickChesterwood/k8s-fleetman)
 
+![Microservices Design](./resources/01-microservices-design.png)
+
 ## Dockerhub images
 
 Intel/AMD user will be using an image from Dockerhub like this:
@@ -172,6 +174,66 @@ kubectl rollout history deployment webapp
 Kubernetes embedded within Docker Desktop
 WebApp: http://localhost:30080/
 Queue: http://localhost:30010/
+# username: admin
+# password: admin
+
+# Delete
+kubectl delete -f .
+```
+
+## 10 Networking and Service Discovery
+
+```powershell
+# Namespaces
+kubectl get all # default namespace
+
+kubectl get namespaces
+NAME              STATUS   AGE
+default           Active   164m
+kube-node-lease   Active   164m
+kube-public       Active   164m
+kube-system       Active   164m
+
+kubectl get all -n kube-system
+
+
+cd '.\course-resources\Chapter 10 Networking'
+# Create
+kubectl apply -f pods.yaml
+kubectl apply -f services.yaml
+kubectl apply -f networking-tests.yaml
+
+
+# Kubernetes embedded within Docker Desktop
+# WebApp: http://localhost:30080/
+# Queue: http://localhost:30010/
+# username: admin
+# password: admin
+
+# Delete
+kubectl delete -f networking-tests.yaml
+kubectl delete -f services.yaml
+kubectl delete -f pods.yaml
+```
+
+## 11 Microservices
+
+```powershell
+kubectl get all
+
+cd '.\course-resources\Chapter 11 Microservices'
+# Create
+kubectl apply -f .
+
+kubectl describe pod position-tracker-5bdbd5c58-4nkr6
+kubectl describe pod api-gateway-77bf7dcbc-kl6xh
+kubectl logs -f api-gateway-77bf7dcbc-kl6xh
+
+# Kubernetes embedded within Docker Desktop
+# WebApp: http://localhost:30080/
+# Queue: http://localhost:30010/
+# Tracker on NodePort: http://localhost:30020/vehicles/City Truck
+# api-gateway on NodePort: http://localhost:30020
 # username: admin
 # password: admin
 
