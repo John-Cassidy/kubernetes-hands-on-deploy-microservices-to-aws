@@ -240,3 +240,24 @@ kubectl logs -f api-gateway-77bf7dcbc-kl6xh
 # Delete
 kubectl delete -f .
 ```
+
+## 12 Persistence
+
+```powershell
+kubectl get all
+
+cd '.\course-resources\Chapter 12 Persistence'
+# Create
+kubectl apply -f .
+
+# Kubernetes embedded within Docker Desktop
+# WebApp: http://localhost:30080/
+# Queue: http://localhost:30010/
+# Tracker on NodePort: http://localhost:30020/vehicles/City Truck
+# api-gateway on NodePort: http://localhost:30020
+# username: admin
+# password: admin
+
+# Delete
+kubectl delete -f .
+```

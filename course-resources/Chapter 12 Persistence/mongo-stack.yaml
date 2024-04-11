@@ -13,11 +13,18 @@ spec:
         app: mongodb
     spec:
       containers:
-      - name: mongodb
-        image: mongo:3.6.5-jessie
-        volumeMounts:
-          - name: mongo-persistent-storage
-            mountPath: /data/db
+        - name: mongodb
+          image: mongo:3.6.5-jessie
+          resources:
+            limits:
+              cpu: '0.5'
+              memory: '512Mi'
+            requests:
+              cpu: '0.4'
+              memory: '256Mi'
+          volumeMounts:
+            - name: mongo-persistent-storage
+              mountPath: /data/db
       volumes:
         - name: mongo-persistent-storage
           # pointer to the configuration of HOW we want the mount to be implemented
