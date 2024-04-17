@@ -1,3 +1,5 @@
+.developernotes/
+
 # Local .terraform directories
 **/.terraform/*
 
