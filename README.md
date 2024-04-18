@@ -367,6 +367,8 @@ kubectl delete -f .
 
 ## 13 AWS - Videos 13, 15, 16
 
+### Videos 13, 15, 16
+
 Setup Kubernetes Nodes for resources:
 
 - API Gateway
@@ -453,7 +455,7 @@ kubectl get pods -o wide # list node each pod is running on
 kubectl delete -f .
 
 # Delete Cluster
-kubectl delete cluster --name=fleetman
+eksctl delete cluster --name=fleetman
 ```
 
 ### Creating Cluster
@@ -507,7 +509,7 @@ eksctl create cluster --name fleetman --nodes-min=3
 
 ```powershell
 # Delete Cluster
-kubectl delete cluster --name=fleetman
+eksctl delete cluster --name=fleetman
 ```
 
 Confirm resources are deleted on AWS:
