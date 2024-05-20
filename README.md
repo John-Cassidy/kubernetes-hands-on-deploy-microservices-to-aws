@@ -609,3 +609,13 @@ kubectl apply -f mongo-stack.yaml
 ```
 
 After these steps, your MongoDB deployment should be using a persistent volume backed by an AWS EBS volume. The volume is created and managed by the AWS EBS CSI driver.
+
+### 15 - ELK
+
+```powershell
+# PODS are deplolyed to namespace kube-system
+
+kubectl apply -f fluentd-config.yaml
+
+kubectl apply -f elastic-stack.yaml
+```
